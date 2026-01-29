@@ -20,6 +20,7 @@ cuda-runtime = "12.4.*"
 cuda-cudart = "12.4.*"
 cudnn = ">=8.9,<9"
 pixi-kernel = ">=0.7.1,<0.8"
+kagglehub = ">=0.4.1,<0.5"
 
 [tasks]
 check-gpu = { cmd = "python -c 'import tensorflow as tf; print(tf.config.list_physical_devices(\"GPU\"))'", env = { LD_LIBRARY_PATH = ".pixi/envs/default/lib" } }
