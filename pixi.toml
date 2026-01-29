@@ -1,0 +1,28 @@
+[workspace]
+authors = ["Ikansh Mahajan <ikanshmahajan@gmail.com>"]
+channels = ["nvidia", "conda-forge"]
+name = "generative-adversarial-pdf-density-learning"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[dependencies]
+python = "3.12.*"
+numpy = "*"
+pandas = "*"
+matplotlib = "*"
+seaborn = "*"
+ipykernel = "*"
+jupyter = "*"
+scipy = "*"
+tensorflow = "2.17.*"   # TensorFlow 2.17 works best with CUDA 12
+cuda-nvcc = "12.4.*"
+cuda-runtime = "12.4.*"
+cuda-cudart = "12.4.*"
+cudnn = ">=8.9,<9"
+pixi-kernel = ">=0.7.1,<0.8"
+
+[tasks]
+check-gpu = { cmd = "python -c 'import tensorflow as tf; print(tf.config.list_physical_devices(\"GPU\"))'", env = { LD_LIBRARY_PATH = ".pixi/envs/default/lib" } }
+
+[system-requirements]
+cuda = "12"
